@@ -105,6 +105,90 @@ class MockQWeatherPluginPlatform
     throw UnimplementedError();
   }
 
+  @override
+  Future<String> getHourlyAirquality({required String latitude, required String longitude, required bool isDev, required String token}) {
+    // TODO: implement getHourlyAirquality
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getDailyAirquality({required String latitude, required String longitude, required bool isDev, required String token}) {
+    // TODO: implement getDailyAirquality
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getWeatherAirNow({required String location}) {
+    // TODO: implement getWeatherAirNow
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getWeatherAirDaily({required String location}) {
+    // TODO: implement getWeatherAirDaily
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getOceanTide({required String location,required String date}) {
+    // TODO: implement getOceanTide
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getOceanCurrents({required String location, required String date}) {
+    // TODO: implement getOceanCurrents
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getHistoricalWeather({required String location, required String date}) {
+    // TODO: implement getHistoricalWeather
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getHistoricalAir({required String location, required String date}) {
+    // TODO: implement getHistoricalAir
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getStormForecast({required String stormId}) {
+    // TODO: implement getStormForecast
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getStormList({required String basin, required String year}) {
+    // TODO: implement getStormList
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getStormTrack({required String stormId}) {
+    // TODO: implement getStormTrack
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getAstronomySun({required String location, required String date}) {
+    // TODO: implement getAstronomySun
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getAstronomyMoon({required String location, required String date}) {
+    // TODO: implement getAstronomyMoon
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getAstronomySunAngle({required String location, required String date, required String time, required String tz, required String alt}) {
+    // TODO: implement getAstronomySunAngle
+    throw UnimplementedError();
+  }
+
 }
 
 void main() {

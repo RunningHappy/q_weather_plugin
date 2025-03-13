@@ -14,7 +14,7 @@
     }
     [QWeatherConfigInstance weatherWithInquireType:inquireType WithSuccess:^(IndicesBaseClass *rep) {
         if(![rep.code isEqualToString:@"200"]){
-            result(NULL);
+            result([NSString stringWithFormat:@"Bad Code:%@",rep.code]);
             return;
         }
         NSMutableArray<NSDictionary*> *dailyList = [NSMutableArray new];
@@ -33,7 +33,7 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
         result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     } faileureForError:^(NSError *error) {
-        result(error);
+        result(@"请求失败");
         NSLog(@"error->%@",error);
     }];
 }

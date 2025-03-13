@@ -17,7 +17,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if(![responseObject[@"code"] isEqualToString:@"200"]){
-            result(NULL);
+            result([NSString stringWithFormat:@"Bad Code:%@",responseObject[@"code"]]);
             return;
         }
 //        NSDictionary *now = @{@"cloud": responseObject[@""], @"dew": rep.now.dew, @"feelsLike": rep.now.feelsLike, @"humidity": rep.now.humidity,
@@ -35,7 +35,7 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:0 error:&error];
         result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        result(error);
+        result(@"请求失败");
         NSLog(@"error->%@",error);
     }];
 }
@@ -57,7 +57,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if(![responseObject[@"code"] isEqualToString:@"200"]){
-            result(NULL);
+            result([NSString stringWithFormat:@"Bad Code:%@",responseObject[@"code"]]);
             return;
         }
 //        NSDictionary *now = @{@"cloud": responseObject[@""], @"dew": rep.now.dew, @"feelsLike": rep.now.feelsLike, @"humidity": rep.now.humidity,
@@ -75,7 +75,7 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:0 error:&error];
         result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        result(error);
+        result(@"请求失败");
         NSLog(@"error->%@",error);
     }];
 }
@@ -97,7 +97,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if(![responseObject[@"code"] isEqualToString:@"200"]){
-            result(NULL);
+            result([NSString stringWithFormat:@"Bad Code:%@",responseObject[@"code"]]);
             return;
         }
 //        NSDictionary *now = @{@"cloud": responseObject[@""], @"dew": rep.now.dew, @"feelsLike": rep.now.feelsLike, @"humidity": rep.now.humidity,
@@ -115,7 +115,7 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject options:0 error:&error];
         result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        result(error);
+        result(@"请求失败");
         NSLog(@"error->%@",error);
     }];
 }

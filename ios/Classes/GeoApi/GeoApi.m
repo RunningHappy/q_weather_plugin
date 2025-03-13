@@ -6,7 +6,7 @@
     QWeatherConfigInstance.location = location;
     [QWeatherConfigInstance weatherWithInquireType:INQUIRE_TYPE_GEO_CITY_LOOKUP WithSuccess:^(GeoBaseClass  *rep) {
         if (![rep.code isEqualToString:@"200"]){
-            result(NULL);
+            result([NSString stringWithFormat:@"Bad Code:%@",rep.code]);
             return;
         }
         NSMutableArray<NSDictionary*> *locations = [NSMutableArray new];
@@ -25,7 +25,7 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
         result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     } faileureForError:^(NSError *error) {
-        result(error);
+        result(@"请求失败");
         NSLog(@"error->%@",error);
     }];
 }
@@ -34,7 +34,7 @@
     QWeatherConfigInstance.location = location;
     [QWeatherConfigInstance weatherWithInquireType:INQUIRE_TYPE_GEO_POI_LOOKUP WithSuccess:^(GeoBaseClass *rep) {
         if(![rep.code isEqualToString:@"200"]){
-            result(NULL);
+            result([NSString stringWithFormat:@"Bad Code:%@",rep.code]);
             return;;
         }
         NSMutableArray<NSDictionary*> *locations = [NSMutableArray new];
@@ -53,7 +53,7 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
         result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     } faileureForError:^(NSError *error) {
-        result(error);
+        result(@"请求失败");
         NSLog(@"error->%@",error);
     }];
 }
@@ -63,7 +63,7 @@
     QWeatherConfigInstance.location = location;
     [QWeatherConfigInstance weatherWithInquireType:INQUIRE_TYPE_GEO_POI_RANGE WithSuccess:^(GeoBaseClass *rep) {
         if(![rep.code isEqualToString:@"200"]){
-            result(NULL);
+            result([NSString stringWithFormat:@"Bad Code:%@",rep.code]);
             return;;
         }
         NSMutableArray<NSDictionary*> *locations = [NSMutableArray new];
@@ -82,7 +82,7 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
         result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     } faileureForError:^(NSError *error) {
-        result(error);
+        result(@"请求失败");
         NSLog(@"error->%@",error);
     }];
 }
@@ -90,7 +90,7 @@
 + (void)getGeoTopCity:(id)param result:(FlutterResult)result {
     [QWeatherConfigInstance weatherWithInquireType:INQUIRE_TYPE_GEO_TOPCITY WithSuccess:^(GeoBaseClass  *rep) {
         if(![rep.code isEqualToString:@"200"]){
-            result(NULL);
+            result([NSString stringWithFormat:@"Bad Code:%@",rep.code]);
             return;
         }
         NSMutableArray<NSDictionary*> *locations = [NSMutableArray new];
@@ -109,7 +109,7 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
         result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     } faileureForError:^(NSError *error) {
-        result(error);
+        result(@"请求失败");
         NSLog(@"error->%@",error);
     }];
 }

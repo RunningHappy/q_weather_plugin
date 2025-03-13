@@ -129,4 +129,105 @@ abstract class QWeatherPluginPlatform extends PlatformInterface {
   }) {
     throw UnimplementedError('getCurrentAirquality() has not been implemented');
   }
+
+  Future<String> getHourlyAirquality({
+    required String latitude, /// 当前位置纬度
+    required String longitude, /// 当前位置经度
+    required bool isDev,
+    required String token
+  }) {
+    throw UnimplementedError('getHourlyAirquality() has not been implemented');
+  }
+
+  Future<String> getDailyAirquality({
+    required String latitude, /// 当前位置纬度
+    required String longitude, /// 当前位置经度
+    required bool isDev,
+    required String token
+  }) {
+    throw UnimplementedError('getDailyAirquality() has not been implemented');
+  }
+
+  Future<String> getWeatherAirNow({
+    required String location
+  }) {
+    throw UnimplementedError('getWeatherAirNow() has not been implemented');
+  }
+
+  Future<String> getWeatherAirDaily({
+    required String location
+  }) {
+    throw UnimplementedError('getWeatherAirDaily() has not been implemented');
+  }
+
+  Future<String> getOceanTide({
+    required String location, /// 需要查询的潮汐站点
+    required String date /// 日期
+  }) {
+    throw UnimplementedError('getOceanTide() has not been implemented');
+  }
+
+  Future<String> getOceanCurrents({
+    required String location, /// 需要查询的潮汐站点
+    required String date /// 日期
+  }) {
+    throw UnimplementedError('getOceanCurrents() has not been implemented');
+  }
+
+  Future<String> getHistoricalWeather({
+    required String location, /// 需要查询的潮汐站点
+    required String date /// 日期
+  }) {
+    throw UnimplementedError('getHistoricalWeather() has not been implemented');
+  }
+
+  Future<String> getHistoricalAir({
+    required String location, /// 需要查询的潮汐站点
+    required String date /// 日期
+  }) {
+    throw UnimplementedError('getHistoricalAir() has not been implemented');
+  }
+
+  Future<String> getStormList({
+    required String basin, /// 台风所在的流域(AL、EP、NP、SP、NI、SI)
+    required String year /// 支持查询本年度和上一年度的台风
+  }) {
+      throw UnimplementedError('getStormList() has not been implemented');
+  }
+
+  Future<String> getStormTrack({
+    required String stormId /// 查询的台风ID
+  }) {
+      throw UnimplementedError('getStormTrack() has not been implemented');
+  }
+
+  Future<String> getStormForecast({
+    required String stormId /// 查询的台风ID
+  }) {
+    throw UnimplementedError('getStormForecast() has not been implemented');
+  }
+
+  Future<String> getAstronomySun({
+    required String location, /// 需要查询的地区
+    required String date /// 日期
+  }) {
+    throw UnimplementedError('getAstronomySun() has not been implemented');
+  }
+
+  Future<String> getAstronomyMoon({
+    required String location, /// 需要查询的地区
+    required String date /// 日期
+  }) {
+    throw UnimplementedError('getAstronomyMoon() has not been implemented');
+  }
+
+  Future<String> getAstronomySunAngle({
+    required String location, /// 需要查询的地区
+    required String date, /// 日期
+    required String time, /// 查询时间
+    required String tz, /// 查询地区所在时区
+    required String alt /// 海拔高度
+  }) {
+    throw UnimplementedError('getAstronomySunAngle() has not been implemented');
+  }
 }

@@ -158,4 +158,150 @@ class MethodChannelQWeatherPlugin extends QWeatherPluginPlatform {
       'token': token
     });
   }
+
+  Future<String> getHourlyAirquality({
+    required String latitude, /// 当前位置纬度
+    required String longitude, /// 当前位置经度
+    required bool isDev,
+    required String token
+  }) async {
+    return await methodChannel.invokeMethod('getHourlyAirquality',{
+      'latitude': latitude,
+      'longitude': longitude,
+      'isDev': isDev,
+      'token': token
+    });
+  }
+
+  Future<String> getDailyAirquality({
+    required String latitude, /// 当前位置纬度
+    required String longitude, /// 当前位置经度
+    required bool isDev,
+    required String token
+  }) async {
+    return await methodChannel.invokeMethod('getDailyAirquality',{
+      'latitude': latitude,
+      'longitude': longitude,
+      'isDev': isDev,
+      'token': token
+    });
+  }
+
+  Future<String> getWeatherAirNow({
+    required String location /// 当前经纬度
+  }) async {
+    return await methodChannel.invokeMethod('getWeatherAirNow',{
+      'location': location
+    });
+  }
+
+  Future<String> getWeatherAirDaily({
+    required String location /// 当前经纬度
+  }) async {
+    return await methodChannel.invokeMethod('getWeatherAirDaily',{
+      'location': location
+    });
+  }
+
+  Future<String> getOceanTide({
+    required String location, /// 需要查询的潮汐站点
+    required String date /// 日期
+  }) async {
+    return await methodChannel.invokeMethod('getOceanTide',{
+      'location': location,
+      'date': date
+    });
+  }
+
+  Future<String> getOceanCurrents({
+    required String location, /// 需要查询的潮汐站点
+    required String date /// 日期
+  }) async {
+    return await methodChannel.invokeMethod('getOceanCurrents',{
+      'location': location,
+      'date': date
+    });
+  }
+
+  Future<String> getHistoricalWeather({
+    required String location, /// 需要查询的地区
+    required String date /// 日期
+  }) async {
+    return await methodChannel.invokeMethod('getHistoricalWeather',{
+      'location': location,
+      'date': date
+    });
+  }
+
+  Future<String> getHistoricalAir({
+    required String location, /// 需要查询的地区
+    required String date /// 日期
+  }) async {
+    return await methodChannel.invokeMethod('getHistoricalAir',{
+      'location': location,
+      'date': date
+    });
+  }
+
+  Future<String> getStormList({
+    required String basin, /// 台风所在的流域(AL、EP、NP、SP、NI、SI)
+    required String year /// 支持查询本年度和上一年度的台风
+  }) async {
+    return await methodChannel.invokeMethod('getStormList',{
+      'basin': basin,
+      'year': year
+    });
+  }
+
+  Future<String> getStormTrack({
+    required String stormId /// 查询的台风ID
+  }) async {
+      return await methodChannel.invokeMethod('getStormTrack',{
+        'stormId': stormId
+      });
+  }
+
+  Future<String> getStormForecast({
+    required String stormId /// 查询的台风ID
+  }) async {
+      return await methodChannel.invokeMethod('getStormForecast',{
+        'stormId': stormId
+      });
+  }
+
+  Future<String> getAstronomySun({
+    required String location, /// 需要查询的地区
+    required String date /// 日期
+  }) async {
+    return await methodChannel.invokeMethod('getAstronomySun',{
+      'location': location,
+      'date': date
+    });
+  }
+
+  Future<String> getAstronomyMoon({
+    required String location, /// 需要查询的地区
+    required String date /// 日期
+  }) async {
+    return await methodChannel.invokeMethod('getAstronomyMoon',{
+      'location': location,
+      'date': date
+    });
+  }
+
+  Future<String> getAstronomySunAngle({
+    required String location, /// 需要查询的地区
+    required String date, /// 日期
+    required String time, /// 查询时间
+    required String tz, /// 查询地区所在时区
+    required String alt /// 海拔高度
+  }) async {
+    return await methodChannel.invokeMethod('getAstronomySunAngle',{
+      "location": location,
+      "date": date,
+      "time": time,
+      "tz": tz,
+      "alt": alt
+    });
+  }
 }

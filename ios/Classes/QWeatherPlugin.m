@@ -7,6 +7,11 @@
 #import "WarningApi/WarningApi.h"
 #import "IndicesApi/IndicesApi.h"
 #import "AirNewApi/AirNewApi.h"
+#import "AirApi/AirApi.h"
+#import "OceanApi/OceanApi.h"
+#import "HistoricalApi/HistoricalApi.h"
+#import "StormApi/StormApi.h"
+#import "AstronomyApi/AstronomyApi.h"
 
 @implementation QWeatherPlugin
 
@@ -63,6 +68,34 @@
         [IndicesApi getDayWeatherIndices:call.arguments result:result];
     } else if ([call.method isEqualToString:@"getCurrentAirquality"]) {
         [AirNewApi getCurrentAirquality:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getHourlyAirquality"]) {
+        [AirNewApi getHourlyAirquality:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getDailyAirquality"]) {
+        [AirNewApi getDailyAirquality:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getWeatherAirNow"]) {
+        [AirApi getCurrentWeatherAir:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getWeatherAirDaily"]) {
+        [AirApi getDailyWeatherAir:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getOceanTide"]) {
+        [OceanApi getOceanTide:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getOceanCurrents"]) {
+        [OceanApi getOceanCurrents:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getHistoricalWeather"]) {
+        [HistoricalApi getHistoricalWeather:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getHistoricalAir"]) {
+        [HistoricalApi getHistoricalAir:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getStormList"]) {
+        [StormApi getStormList:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getStormTrack"]) {
+        [StormApi getStormTrack:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getStormForecast"]) {
+        [StormApi getStormForecast:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getAstronomySun"]) {
+        [AstronomyApi getAstronomySun:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getAstronomyMoon"]) {
+        [AstronomyApi getAstronomyMoon:call.arguments result:result];
+    } else if ([call.method isEqualToString:@"getAstronomySunAngle"]) {
+        [AstronomyApi getAstronomySunAngle:call.arguments result:result];
     } else {
         result(FlutterMethodNotImplemented);
     }
