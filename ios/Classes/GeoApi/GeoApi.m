@@ -31,7 +31,9 @@
 }
 + (void)geoPoiLookup:(id)param result:(FlutterResult)result {
     NSString *location = param[@"location"];
+    NSString *type = param[@"type"];
     QWeatherConfigInstance.location = location;
+    QWeatherConfigInstance.type = type;
     [QWeatherConfigInstance weatherWithInquireType:INQUIRE_TYPE_GEO_POI_LOOKUP WithSuccess:^(GeoBaseClass *rep) {
         if(![rep.code isEqualToString:@"200"]){
             result([NSString stringWithFormat:@"Bad Code:%@",rep.code]);

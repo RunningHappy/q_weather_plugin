@@ -8,10 +8,12 @@ class QWeatherPlugin {
   Future<bool> initialize({
     required String apiKey, /// 你的apiKey
     required String publicID, /// 你的publicID
+    required bool isDev, /// 环境
   }) {
     return QWeatherPluginPlatform.instance.initialize(
         apiKey: apiKey,
-        publicID: publicID
+        publicID: publicID,
+        isDev: isDev
     );
   }
   /// 城市搜索
@@ -29,15 +31,17 @@ class QWeatherPlugin {
   }
   /// POI搜索
   Future<String> getGeoPoiLookup({
-    required String location /// 当前经纬度
+    required String location, /// 当前经纬度
+    required String type /// POI类型(SCENIC、CSTA、TSTA)
   }) {
-    return QWeatherPluginPlatform.instance.getGeoPoiLookup(location: location);
+    return QWeatherPluginPlatform.instance.getGeoPoiLookup(location: location, type: type);
   }
   /// POI范围搜索
   Future<String> getGeoPoiRange({
-    required String location /// 当前经纬度
+    required String location, /// 当前经纬度
+    required String type /// POI类型(SCENIC、CSTA、TSTA)
   }) {
-    return QWeatherPluginPlatform.instance.getGeoPoiRange(location: location);
+    return QWeatherPluginPlatform.instance.getGeoPoiRange(location: location, type: type);
   }
 
   /// 实时天气
@@ -50,7 +54,7 @@ class QWeatherPlugin {
   /// 每日天气预报
   Future<String> getWeatherDaily({
     required String location, /// 当前经纬度
-    required int days, /// 3、7、10、15
+    required int days, /// 3、7、10、15 (安卓独有30)
   }) {
     return QWeatherPluginPlatform.instance.getWeatherDaily(
       location: location,

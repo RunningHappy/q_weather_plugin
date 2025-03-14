@@ -8,7 +8,7 @@ class MockQWeatherPluginPlatform
     with MockPlatformInterfaceMixin
     implements QWeatherPluginPlatform {
   @override
-  Future<bool> initialize({required String apiKey, required String publicID}) {
+  Future<bool> initialize({required String apiKey, required String publicID, required bool isDev}) {
     // TODO: implement initialize
     throw UnimplementedError();
   }
@@ -27,14 +27,15 @@ class MockQWeatherPluginPlatform
 
   @override
   Future<String> getGeoPoiLookup({
-    required String location /// 当前经纬度
+    required String location, /// 当前经纬度
+    required String type /// POI类型(scenic、CSTA、TSTA)
   }) {
     // TODO: implement getGeoPoiLookup
     throw UnimplementedError();
   }
 
   @override
-  Future<String> getGeoPoiRange({required String location}) {
+  Future<String> getGeoPoiRange({required String location,required String type}) {
     // TODO: implement getGeoPoiRange
     throw UnimplementedError();
   }

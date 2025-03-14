@@ -12,10 +12,12 @@ class MethodChannelQWeatherPlugin extends QWeatherPluginPlatform {
   Future<bool> initialize({
     required String apiKey, /// 你的apiKey
     required String publicID, /// 你的publicID
+    required bool isDev, /// 环境
   }) async {
     return await methodChannel.invokeMethod('initialize',{
       'apiKey': apiKey,
-      'publicID': publicID
+      'publicID': publicID,
+      'isDev': isDev
     });
   }
 
@@ -32,18 +34,22 @@ class MethodChannelQWeatherPlugin extends QWeatherPluginPlatform {
   }
 
   Future<String> getGeoPoiLookup({
-    required String location /// 当前经纬度
+    required String location, /// 当前经纬度
+    required String type /// POI类型(scenic、CSTA、TSTA)
   }) async {
     return await methodChannel.invokeMethod('getGeoPoiLookup',{
-      'location': location
+      'location': location,
+      'type': type
     });
   }
 
   Future<String> getGeoPoiRange({
-    required String location /// 当前经纬度
+    required String location, /// 当前经纬度
+    required String type /// POI类型(SCENIC、CSTA、TSTA)
   }) async {
     return await methodChannel.invokeMethod('getGeoPoiRange',{
-      'location': location
+      'location': location,
+      'type': type
     });
   }
 

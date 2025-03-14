@@ -26,6 +26,7 @@ abstract class QWeatherPluginPlatform extends PlatformInterface {
   Future<bool> initialize({
     required String apiKey, /// 你的apiKey
     required String publicID, /// 你的publicID
+    required bool isDev, /// 环境
   }) {
     throw UnimplementedError('initialize() has not been implemented.');
   }
@@ -41,13 +42,15 @@ abstract class QWeatherPluginPlatform extends PlatformInterface {
   }
 
   Future<String> getGeoPoiLookup({
-    required String location /// 当前经纬度
+    required String location, /// 当前经纬度
+    required String type /// POI类型(scenic、CSTA、TSTA)
   }) {
     throw UnimplementedError('getGeoPoiLookup() has not been implemented.');
   }
 
   Future<String> getGeoPoiRange({
-    required String location /// 当前经纬度
+    required String location, /// 当前经纬度
+    required String type /// POI类型(SCENIC、CSTA、TSTA)
   }) {
     throw UnimplementedError('getGeoPoiRange() has not been implemented.');
   }

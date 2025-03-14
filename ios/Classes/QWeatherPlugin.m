@@ -27,12 +27,17 @@
     if ([call.method isEqualToString:@"initialize"]) {
         NSString *apiKey = call.arguments[@"apiKey"];
         NSString *publicID = call.arguments[@"publicID"];
+        BOOL isDev = call.arguments[@"isDev"];
         if(apiKey && publicID){
             QWeatherConfigInstance.publicID = publicID;
             QWeatherConfigInstance.appKey   = apiKey;
             QWeatherConfigInstance.lang     = @"zh";
             QWeatherConfigInstance.unit     = @"m";
-            QWeatherConfigInstance.appType  = APP_TYPE_DEV;
+            if(isDev){
+                QWeatherConfigInstance.appType  = APP_TYPE_DEV;
+            }else{
+                QWeatherConfigInstance.appType  = APP_TYPE_BIZ;
+            }
         }else{
             result([FlutterError errorWithCode:@"INVALID_ARGUMENT"
                                        message:@"appKey is null"

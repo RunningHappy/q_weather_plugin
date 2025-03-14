@@ -49,10 +49,14 @@ android {
         minSdkVersion 19
     }
 
-    dependencies {
-        testImplementation 'org.jetbrains.kotlin:kotlin-test'
-        testImplementation 'org.mockito:mockito-core:5.0.0'
-        implementation fileTree(dir: 'libs', include: ['*.jar'])
+    buildTypes {
+        release {
+            consumerProguardFiles "proguard-rules.pro"
+        }
+    }
+
+    packagingOptions {
+        merge 'AndroidManifest.xml'
     }
 
     testOptions {
@@ -66,4 +70,12 @@ android {
             }
         }
     }
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.mockito:mockito-core:5.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.squareup.okhttp3:okhttp:3.12.12+'
+    implementation 'com.google.code.gson:gson:2.6.2+'
 }
